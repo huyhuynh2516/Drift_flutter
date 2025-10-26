@@ -1,6 +1,6 @@
-# sqliteproject
+# Demo Drift_project
 
-A new Flutter project.
+Migrate to Drift.
 
 ## Getting Started
 
