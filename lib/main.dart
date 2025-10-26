@@ -1,26 +1,24 @@
 import 'package:flutter/material.dart';
+import 'user/db/linhkien_database.dart';
 import 'user/view/component_screen.dart';
-import 'user/db/LinhKienDatabaseHelper.dart';
 
-void main() async {
+void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  await LinhkienDatabaseHelper.instance.database; // phải có dòng này
-  runApp(const MyApp());
+  final db = LinhKienDatabase();
+  runApp(MyApp(db: db));
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  final LinhKienDatabase db;
+  const MyApp({Key? key, required this.db}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Điện tử Quý-Huy',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blueAccent),
-        useMaterial3: true,
-      ),
-      home: const ComponentScreen(),
+      title: 'Quản lý linh kiện',
+      theme: ThemeData(primarySwatch: Colors.blue),
+      home: ComponentScreen(db: db),
     );
   }
 }
+

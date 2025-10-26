@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
-import '../model/linhkien.dart';
+// import '../model/linhkien.dart';
+import '../db/linhkien_database.dart';
+
 
 class ComponentCard extends StatelessWidget {
-  final Component linhkien;
+  final LinhKien linhkien;
   final String? categoryName;
   final VoidCallback? onTap;
   final VoidCallback? onDelete;
